@@ -1,0 +1,50 @@
+{
+ "name": "ctx_gru_plr_f2",
+ "stage": "adhoc",
+ "split": "ay3liso",
+ "arch": "ctx",
+ "params": 2931640,
+ "cfg": {
+  "arch": "ctx",
+  "model": {
+   "d": 64,
+   "mixer": "gru",
+   "plr": {
+    "k": 16,
+    "sigma": 0.3,
+    "d": 16
+   }
+  },
+  "target": "delta",
+  "loss": "mse",
+  "huber_delta": 1.0,
+  "epochs": 10,
+  "seeds": [
+   0,
+   1
+  ],
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 2048,
+  "warmup_steps": 300,
+  "lr_floor": 0.02,
+  "grad_clip": 1.0,
+  "subsample": 1.0,
+  "ctx": {
+   "k_airport": 16,
+   "k_runway": 8
+  },
+  "eval_every": 1,
+  "budget_min": 240,
+  "name": "ctx_gru_plr_f2",
+  "stage": "S7-v3l-iso",
+  "reuse_seeds": {}
+ },
+ "seconds": 2515.2,
+ "target_mu_sd": [
+  17.12425549385777,
+  382.03946202939784
+ ],
+ "aborted": false,
+ "created": "2026-09-30T01:08:33"
+}

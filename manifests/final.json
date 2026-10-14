@@ -1,0 +1,71 @@
+{
+ "final": "F2FP",
+ "files": {
+  "F0": {
+   "sha256": "6f70a292d6a26b0491db7d40b67139718bb9c09dd08338a48c535550fa137db9",
+   "step": "70 (LGB_SET='' NAME=F0)",
+   "reproduced_by_release_run": false
+  },
+  "F1": {
+   "sha256": "290614ff7bf2785d765792ace9358c1a5b2890604bd1c7832aad08fa45ae09db",
+   "step": "70",
+   "reproduced_by_release_run": true
+  },
+  "F2E": {
+   "sha256": "8dbaa2a822aa19ffc85ca6e23968777d8e993d7508b155adbbeb8f4769491b2b",
+   "step": "75 (B_MODE=fmt_special OUT=F2E)",
+   "reproduced_by_release_run": true
+  },
+  "F2F": {
+   "sha256": "d822f7a573443a4969fd07eb0afaac10d428092e4cede8cba394b40a05a6cab3",
+   "step": "75",
+   "reproduced_by_release_run": true
+  }
+ },
+ "rows": 670790,
+ "public_scores": {
+  "_note": "public board, January and July 2026 (344,841 rows), RMSE in seconds; uploads of the final phase",
+  "v42": {
+   "file": "F0",
+   "rmse": 237.8783
+  },
+  "v43": {
+   "file": "F1",
+   "rmse": 237.86
+  },
+  "v44": {
+   "file": "F2",
+   "rmse": 237.515
+  },
+  "v45": {
+   "file": "F2B",
+   "rmse": 236.4358
+  },
+  "v46": {
+   "file": "F2C",
+   "rmse": 236.8877
+  },
+  "v47": {
+   "file": "F2D",
+   "rmse": 236.2816
+  },
+  "v48": {
+   "file": "F2E",
+   "rmse": 235.6516
+  },
+  "v49": {
+   "file": "F2F",
+   "rmse": 235.6236
+  },
+  "v50": {
+   "file": "F2EP",
+   "rmse": 211.9163
+  }
+ },
+ "release_run": {
+  "date": "2026-10-14",
+  "workspaces": "fresh copy-on-write copies of this repository",
+  "run_all_minutes": 85,
+  "note": "F0 is from the original build; the release run stopped before its variant step"
+ }
+}

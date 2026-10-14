@@ -1,0 +1,75 @@
+# Additive declarative contract; Agent 1 must implement and test the runner adapter.
+# configs/validation.yaml remains the historical V1-V4 interface.
+protocol_version: ranking_aligned_v2
+implementation_status: specification_pending_runner_migration
+implementation_owner: agent1
+training_year: 2025
+ranking_year: 2026
+timezone: UTC
+time_col: MVT_TIME_UTC_mvt
+target_col: TAXITIME_SEC_mvt
+id_col: MVT_ID_mvt
+phase_col: PHASE_mvt
+evaluation_phase: DEP
+primary_view: JAN_JUL_2025
+primary_metric: full_population_rmse_seconds
+aggregation: sqrt_total_sse_over_total_rows
+isolate_val_month_context: true
+views:
+  JAN_JUL_2025:
+    legacy_alias: V1
+    train_months: [2, 3, 4, 5, 6, 8, 9, 10]
+    val_months: [1, 7]
+    role: primary_ranking_season_analogue
+    locked: false
+  FORWARD_JUL_2025:
+    legacy_alias: V2
+    train_months: [1, 2, 3, 4, 5, 6]
+    val_months: [7]
+    role: auxiliary_forward_time_check
+    locked: false
+  OCT_2025:
+    legacy_alias: V3
+    train_months: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    val_months: [10]
+    role: auxiliary_autumn_check
+    locked: false
+  NOV_DEC_2025_LOCKED:
+    legacy_alias: V4
+    train_months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    val_months: [11, 12]
+    role: locked_final
+    locked: true
+reporting_slices:
+  JAN_2025:
+    parent_view: JAN_JUL_2025
+    val_months: [1]
+    refit: false
+  JUL_2025:
+    parent_view: JAN_JUL_2025
+    val_months: [7]
+    refit: false
+primary_internal_screening:
+  eligible_months: [2, 3, 4, 5, 6, 8, 9, 10]
+  heldout_groups: [[2, 8], [3, 9], [4, 10], [5, 6]]
+  fit_policy: eligible_months_minus_holdout_group
+  interpretation: blocked_reconstruction_not_forward_forecast
+primary_final_oof:
+  eligible_months: [2, 3, 4, 5, 6, 8, 9, 10]
+  holdout_unit: month
+  fit_policy: eligible_months_minus_holdout
+  full_upstream_ancestry_required: true
+ranking:
+  months: [1, 7]
+  labels_available_locally: false
+  automatic_upload: false
+boundaries:
+  validation_departure_block_and_target_masked_in_features: true
+  phase_aware_arrival_features: true
+  locked_holdout_access_authorized: false
+  restricted_opensky_research_allowed: true
+  opensky_authorization_basis: owner_reported_verbal_provider_agreement
+  restricted_opensky_automatic_submission_allowed: false
+  transitive_source_provenance_required: true
+  no_source_retraining_required_for_removal: true
+  aobt_ranking_allowed_without_explicit_clearance: false

@@ -1,0 +1,30 @@
+{
+ "params": {
+  "loss_function": "RMSE",
+  "eval_metric": "RMSE",
+  "iterations": 7994,
+  "depth": 10,
+  "learning_rate": 0.04327243366852777,
+  "random_seed": 42,
+  "thread_count": 4,
+  "verbose": false,
+  "allow_writing_files": false,
+  "l2_leaf_reg": 1.5773531900686344,
+  "random_strength": 7.59648094103088,
+  "border_count": 128,
+  "rsm": 0.67598014985143,
+  "bootstrap_type": "MVS",
+  "subsample": 0.7344575969561962
+ },
+ "params_sha256": "ec89aa752a22a177ed0b1a05073f3c9f581218a325dc4730880dcc41d529fc2a",
+ "matrix_identity_sha256": "9d6f85234551f390bce93732df8c62f96a07b04f76f80426186cb6bcbb10c266",
+ "target": {
+  "offset_col": "takeoff_minus_aobt_sec",
+  "sign": -1,
+  "fill_col": "unimpeded_p10",
+  "winsor_sec": 7200.0
+ },
+ "n_train": 2062622,
+ "fit_seconds": 29776.22915676399,
+ "model_sha256": "7055446bc0851b59476038c958ffad1cb82a5dc79b278c1974a2cdb9d8207785"
+}

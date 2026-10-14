@@ -1,0 +1,54 @@
+{
+ "name": "plr_s03_resnet_f3",
+ "stage": "adhoc",
+ "split": "ay3liso",
+ "arch": "resnet",
+ "params": 6605560,
+ "cfg": {
+  "arch": "resnet",
+  "model": {
+   "d": 512,
+   "n_blocks": 4,
+   "factor": 2.0,
+   "dropout1": 0.15,
+   "plr": {
+    "k": 16,
+    "sigma": 0.3,
+    "d": 16,
+    "lite": false
+   }
+  },
+  "target": "delta",
+  "loss": "mse",
+  "huber_delta": 1.0,
+  "epochs": 10,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 4096,
+  "warmup_steps": 300,
+  "lr_floor": 0.02,
+  "grad_clip": 1.0,
+  "subsample": 1.0,
+  "ctx": {
+   "k_airport": 16,
+   "k_runway": 8
+  },
+  "eval_every": 1,
+  "budget_min": 240,
+  "name": "plr_s03_resnet_f3",
+  "stage": "S7-v3l-iso",
+  "reuse_seeds": {}
+ },
+ "seconds": 2369.7,
+ "target_mu_sd": [
+  17.12425549385777,
+  382.03946202939784
+ ],
+ "aborted": false,
+ "created": "2026-09-30T00:26:36"
+}

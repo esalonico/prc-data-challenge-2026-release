@@ -1,0 +1,61 @@
+{
+ "name": "traj_conv_resnet_f3",
+ "stage": "fit",
+ "split": "ay3liso",
+ "params": 7250168,
+ "cfg": {
+  "model": {
+   "body": "resnet",
+   "widths": [
+    512,
+    512
+   ],
+   "head_widths": [
+    256
+   ],
+   "dropout": 0.1,
+   "plr": {
+    "k": 16,
+    "sigma": 0.3,
+    "d": 16
+   },
+   "traj": {
+    "d": 96,
+    "kind": "conv",
+    "n_blocks": 3
+   },
+   "resnet": {
+    "d": 512,
+    "n_blocks": 4,
+    "factor": 2.0,
+    "dropout1": 0.15
+   }
+  },
+  "target": "delta",
+  "epochs": 10,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 4096,
+  "warmup_steps": 300,
+  "lr_floor": 0.02,
+  "grad_clip": 1.0,
+  "n_max": 128,
+  "no_track": false,
+  "budget_min": 900,
+  "stage": "fit",
+  "name": "traj_conv_resnet_f3"
+ },
+ "seconds": 10690.7,
+ "target_mu_sd": [
+  17.12425549385777,
+  382.03946202939784
+ ],
+ "aborted": false,
+ "created": "2026-09-30T04:06:55",
+ "device": "mps"
+}

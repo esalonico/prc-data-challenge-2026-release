@@ -1,0 +1,30 @@
+{
+ "description": "Day set of the shipped ADS-B blocks (prize all-year, v3-lean, D-pool features, trajectory store). The adsb.lol slim store on R2 holds more 2025 days than that build had; the 2025 pool reproduces exactly only with these days hidden (scripts/final/10_regress.sh). 2025-05-28 .. 2025-06-10 are absent upstream.",
+ "extra_days_hidden_for_the_2025_pool": [
+  "2025-01-01",
+  "2025-01-11",
+  "2025-01-18",
+  "2025-01-19",
+  "2025-01-21",
+  "2025-06-11",
+  "2025-12-25"
+ ],
+ "regress_2026_days": "January and July 2026 plus 2026-06-30 (the public ranking file's days and their neighbour)",
+ "stage1_variants": {
+  "no_dictionary": "prize all-year block (the matrix block of every tabular leg)",
+  "dictionary": "v3-lean block, D-pool feature blocks (unmatched sensor and channels), trajectory store"
+ },
+ "linker_keep_fallback": [
+  "EDDF",
+  "EDDM",
+  "LEBL",
+  "LEMD",
+  "LIRF",
+  "LSZH"
+ ],
+ "verified": {
+  "prize_allyear": "value-identical to sha 70cfd2e5... (2,429,888 rows, 0 differing)",
+  "prize_dfit": "byte-identical, sha 0b39f62c...",
+  "v3lean_allyear": "byte-identical, sha e7b81caa..."
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "name": "plr_s03_eobtres_f3",
+ "stage": "adhoc",
+ "split": "ay3liso",
+ "arch": "mlp",
+ "params": 2796280,
+ "cfg": {
+  "arch": "mlp",
+  "model": {
+   "widths": [
+    512,
+    512,
+    256
+   ],
+   "dropout": 0.1,
+   "plr": {
+    "k": 16,
+    "sigma": 0.3,
+    "d": 16,
+    "lite": false
+   }
+  },
+  "target": "eobtres",
+  "loss": "mse",
+  "huber_delta": 1.0,
+  "epochs": 10,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 4096,
+  "warmup_steps": 300,
+  "lr_floor": 0.02,
+  "grad_clip": 1.0,
+  "subsample": 1.0,
+  "ctx": {
+   "k_airport": 16,
+   "k_runway": 8
+  },
+  "eval_every": 1,
+  "budget_min": 240,
+  "name": "plr_s03_eobtres_f3",
+  "stage": "S7-v3l-iso",
+  "reuse_seeds": {}
+ },
+ "seconds": 1262.1,
+ "target_mu_sd": [
+  -377.20933167359397,
+  561.5230651211485
+ ],
+ "aborted": false,
+ "created": "2026-09-29T23:47:04"
+}

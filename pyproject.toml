@@ -1,0 +1,49 @@
+[project]
+name = "prc-challenge-2026"
+version = "0.1.0"
+description = "PRC Data Challenge 2026 — taxi-out time prediction"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+requires-python = ">=3.12"
+dependencies = [
+    "boto3>=1.35",
+    "catboost>=1.2",
+    "duckdb>=1.2",
+    "holidays>=0.104",
+    "ipykernel>=6.29",
+    "ipywidgets>=8.1",
+    "joblib>=1.4",
+    "jupyterlab>=4.3",
+    "lightgbm>=4.5",
+    "matplotlib>=3.9",
+    "minio>=7.2",
+    "numpy>=2.0",
+    "optuna>=5.0.0",
+    "pandas>=2.2",
+    "plotly>=5.24",
+    "polars>=1.17",
+    "pyarrow>=17",
+    "pytabkit>=1.7.3",
+    "pyyaml>=6.0",
+    "s3fs>=2024.10.0",
+    "scikit-learn>=1.5",
+    "seaborn>=0.13",
+    "skorch>=1.4.0",
+    "statsmodels>=0.14",
+    "tabpfn-client>=0.5.3",
+    "torch>=2.14.0",
+    "tqdm>=4.66",
+    "xgboost>=2.1",
+]
+
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

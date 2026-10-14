@@ -1,0 +1,30 @@
+protocol_version: v1
+time_col: MVT_TIME_UTC_mvt
+target_col: TAXITIME_SEC_mvt
+id_col: MVT_ID_mvt
+locked_view: V4
+isolate_val_month_context: true
+views:
+  V1:
+    train_months: [2, 3, 4, 5, 6, 8, 9, 10]
+    val_months: [1, 7]
+    role: primary_development
+    locked: false
+  V2:
+    train_months: [1, 2, 3, 4, 5, 6]
+    val_months: [7]
+    role: forward_summer
+    locked: false
+  V3:
+    train_months: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    val_months: [10]
+    role: forward_autumn
+    locked: false
+  V4:
+    train_months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    val_months: [11, 12]
+    role: locked_final
+    locked: true
+notes: |
+  V1 is the primary development score. V4 is locked: no hyperparameter search,
+  feature selection, or exploratory target analysis on November–December 2025 labels.

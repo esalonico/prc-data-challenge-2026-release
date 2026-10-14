@@ -1,0 +1,390 @@
+{
+ "train_rows_in_months": 2085047,
+ "train_kept": 2062622,
+ "train_dropped": 22425,
+ "eval_rows": 344841,
+ "q1": {
+  "fit_months_train_rows": "leave-one-month-out within train months",
+  "eval_fit_months": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "diagnostics": {
+   "median": {
+    "global_value": 911.0,
+    "low_load_cutoff": null,
+    "validation_baseline_rmse": NaN,
+    "validation_baseline_mae": NaN,
+    "support_nonzero": 1.0
+   },
+   "p10": {
+    "global_value": 572.0,
+    "low_load_cutoff": null,
+    "validation_baseline_rmse": NaN,
+    "validation_baseline_mae": NaN,
+    "support_nonzero": 1.0
+   },
+   "p20": {
+    "global_value": 670.0,
+    "low_load_cutoff": null,
+    "validation_baseline_rmse": NaN,
+    "validation_baseline_mae": NaN,
+    "support_nonzero": 1.0
+   },
+   "lowload": {
+    "global_value": 841.0,
+    "low_load_cutoff": 13.0,
+    "validation_baseline_rmse": NaN,
+    "validation_baseline_mae": NaN,
+    "support_nonzero": 1.0
+   }
+  },
+  "seconds": 114.1
+ },
+ "native_normaliser": {
+  "train": "cross-fitted by month within train months",
+  "eval_fit_months": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "arrival_rows": 2082388
+ },
+ "s4_references": [
+  {
+   "period": "2025-01",
+   "reference_months": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "reference_fingerprint": "d26a05bc8f849ed7878b7fc0d500d3b5d9cc65322c9dade7815e2e448195c200",
+   "global_duration_sec": 912.0,
+   "n_reference_labels": 1930463,
+   "path": "features/s4_learned/2025-01/s4_2025-01_ref-d26a05bc8f849ed7.parquet",
+   "sha256": "8aafb4f2cc3b366d304c7b75edee5da188aa8b2c7cfd999b69037bca6e7ea31a",
+   "role": "train"
+  },
+  {
+   "period": "2025-02",
+   "reference_months": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "reference_fingerprint": "f05e581af8e4a558d5290dce86d777f8348b2f2721b0689201f45bbf21d8ba08",
+   "global_duration_sec": 912.0,
+   "n_reference_labels": 1940443,
+   "path": "features/s4_learned/2025-02/s4_2025-02_ref-f05e581af8e4a558.parquet",
+   "sha256": "8f956a7112e0a91184bbaf149d7e96648644552f6fc6074126c83f7c18b39783",
+   "role": "train"
+  },
+  {
+   "period": "2025-03",
+   "reference_months": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "reference_fingerprint": "db04d5f2325a4bd022c383d3e6f3cda8e1828a347536df3827b527f1fbbb0cff",
+   "global_duration_sec": 912.0,
+   "n_reference_labels": 1919702,
+   "path": "features/s4_learned/2025-03/s4_2025-03_ref-db04d5f2325a4bd0.parquet",
+   "sha256": "9ce9b3e0ba493627b0c36464d0c3a34d3e5855dc67490ab5bf7b7718e5d9422d",
+   "role": "train"
+  },
+  {
+   "period": "2025-04",
+   "reference_months": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "reference_fingerprint": "a2952f9f4a3e0fe23339262e64c524b7ea12613ffb69c46f4351be06ba89766d",
+   "global_duration_sec": 912.0,
+   "n_reference_labels": 1908865,
+   "path": "features/s4_learned/2025-04/s4_2025-04_ref-a2952f9f4a3e0fe2.parquet",
+   "sha256": "7ad0fcb4aba837c5b0bb203140062463d838c28346d9c78164cf7860189ed314",
+   "role": "train"
+  },
+  {
+   "period": "2025-05",
+   "reference_months": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "reference_fingerprint": "766eeee9445ddc207188cae265a9f5dc2e2b69fab04db0bdf9cf93579107e58e",
+   "global_duration_sec": 911.0,
+   "n_reference_labels": 1898952,
+   "path": "features/s4_learned/2025-05/s4_2025-05_ref-766eeee9445ddc20.parquet",
+   "sha256": "cd76df9a9ba87cdbb29b4cf5854dd254157d9d739031ccf00c65285b9e1a83f8",
+   "role": "train"
+  },
+  {
+   "period": "2025-06",
+   "reference_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "reference_fingerprint": "812680ec4eaa820a90b6ad2fe83094aca8544c5512bd1edf27103dbc531d379f",
+   "global_duration_sec": 914.0,
+   "n_reference_labels": 1901076,
+   "path": "features/s4_learned/2025-06/s4_2025-06_ref-812680ec4eaa820a.parquet",
+   "sha256": "39921fdf847807513ffeae25300a338d6e900e17ce1c2b751b68fd9aa474825a",
+   "role": "train"
+  },
+  {
+   "period": "2025-07",
+   "reference_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "reference_fingerprint": "93dab27008260bb29cdd041fb7109c927b5676232e77a8cf29f90ebc3dea2d29",
+   "global_duration_sec": 911.0,
+   "n_reference_labels": 1893535,
+   "path": "features/s4_learned/2025-07/s4_2025-07_ref-93dab27008260bb2.parquet",
+   "sha256": "a635b351ba489ba5bfe359124470f89815dbdb5b043d901782e1d463f7fdc263",
+   "role": "train"
+  },
+  {
+   "period": "2025-08",
+   "reference_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12
+   ],
+   "reference_fingerprint": "4141fb97c70c38a2c936c700800a9d40816ce2fe6747d96846d4622da5f6879e",
+   "global_duration_sec": 911.0,
+   "n_reference_labels": 1893026,
+   "path": "features/s4_learned/2025-08/s4_2025-08_ref-4141fb97c70c38a2.parquet",
+   "sha256": "ac64bd5dc213eeb73aaa4c5bdb19fe28a6c912fbca39ef2a2d98d589c78e9fe9",
+   "role": "train"
+  },
+  {
+   "period": "2025-09",
+   "reference_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12
+   ],
+   "reference_fingerprint": "e26d8200726822879560a0d99ed89a0ad0b76076c9c71b0818123bb013d0e0e4",
+   "global_duration_sec": 911.0,
+   "n_reference_labels": 1900210,
+   "path": "features/s4_learned/2025-09/s4_2025-09_ref-e26d820072682287.parquet",
+   "sha256": "c99f8c366ad98c015fcfb548557aa85bb5cf42dbe5c09d1fce318cca0e1b0ac7",
+   "role": "train"
+  },
+  {
+   "period": "2025-10",
+   "reference_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12
+   ],
+   "reference_fingerprint": "a47539168a431ffd54708eba67e28dd4445803d37ab4cace54eb342e6656b469",
+   "global_duration_sec": 911.0,
+   "n_reference_labels": 1898483,
+   "path": "features/s4_learned/2025-10/s4_2025-10_ref-a47539168a431ffd.parquet",
+   "sha256": "e00492681ee386634d8dc76efd28f3ccd255902d963d8ef3fa9d13bcf0cb1496",
+   "role": "train"
+  },
+  {
+   "period": "2025-11",
+   "reference_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    12
+   ],
+   "reference_fingerprint": "5f15b38882f7f3e9b1426bbc325abd211fafe05dc81fd2c612c130d6f8472588",
+   "global_duration_sec": 911.0,
+   "n_reference_labels": 1921803,
+   "path": "features/s4_learned/2025-11/s4_2025-11_ref-5f15b38882f7f3e9.parquet",
+   "sha256": "514b1ed44bfe3594a17fa6dfb4caa7238e9ccbd774d134541698b82ed288e2ad",
+   "role": "train"
+  },
+  {
+   "period": "2025-12",
+   "reference_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "reference_fingerprint": "01006a18e2cddd8eacceea141ed1cab60a4414cbbc19dca5d67ab28dfaddebd6",
+   "global_duration_sec": 912.0,
+   "n_reference_labels": 1918476,
+   "path": "features/s4_learned/2025-12/s4_2025-12_ref-01006a18e2cddd8e.parquet",
+   "sha256": "79856adbe97f3cbc56f741e20f2f7f30ca12d868365007b70d93a0631315b69a",
+   "role": "train"
+  },
+  {
+   "period": "2026-01",
+   "reference_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "reference_fingerprint": "c2c5713478650e4c4e2ef2b526bcf54953686e5d997164e7590580a2e1fd9f62",
+   "global_duration_sec": 911.0,
+   "n_reference_labels": 2084094,
+   "path": "features/s4_learned/2026-01/s4_2026-01_ref-c2c5713478650e4c.parquet",
+   "sha256": "07d7e689b88b08fbdfd5b38f94468d8488e2f13f3229688ff02ce6558081a601",
+   "role": "eval"
+  },
+  {
+   "period": "2026-07",
+   "reference_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "reference_fingerprint": "c2c5713478650e4c4e2ef2b526bcf54953686e5d997164e7590580a2e1fd9f62",
+   "global_duration_sec": 911.0,
+   "n_reference_labels": 2084094,
+   "path": "features/s4_learned/2026-07/s4_2026-07_ref-c2c5713478650e4c.parquet",
+   "sha256": "05b986cfe86c8dfee751c96be82d92849f7e376514c8db4e1f1d461292a74c45",
+   "role": "eval"
+  }
+ ],
+ "coverage": {
+  "train_s4_nonnull": 0.999999030360386,
+  "eval_s4_nonnull": 1.0,
+  "train_native_available": 0.9999398823439293,
+  "eval_native_available": 0.9999536018048898
+ }
+}

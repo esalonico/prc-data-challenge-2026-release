@@ -1,0 +1,93 @@
+{
+  "_doc": "Parity-screen allowlist v2 (orchestrator-approved, D-089): v1 + SA-EMA-X1 proposals (m2_al_* null, gust null July, native_same_runway excess null January) + STAND_mvt unseen levels (EDDF Terminal 3, docs/AIRPORT_CHANGES.md; CatBoost treats unseen categories as unknown). Lookback and ADS-B support-count columns are fixed by isocap_v1, not allowlisted.",
+  "patterns": [
+    {
+      "pattern": "adsb_*",
+      "kinds": [
+        "shift",
+        "null"
+      ],
+      "reason": "2026 ADS-B ground coverage is much higher than in 2025 (null rates -9 to -29 pp) and 2026 surfaces are busier; known and intended (D-030/D-033). Mean/null shifts only; tails beyond the training support are not covered."
+    },
+    {
+      "pattern": "adsb3_*",
+      "kinds": [
+        "shift",
+        "null"
+      ],
+      "reason": "V3L taxiway-map block (D-064/D-069): the same higher 2026 ADS-B ground coverage gives more rows with map estimates (null rates -15 to -17 pp). Mean/null shifts only; tails not covered."
+    },
+    {
+      "pattern": "m2_*delay*",
+      "kinds": [
+        "shift"
+      ],
+      "reason": "Genuine 2026 delay drift: January 2026 more delayed, July 2026 less (+-0.28-0.42 sd), departure-delay medians of the M2 block (SA-EMA-FE 5.3)."
+    },
+    {
+      "pattern": "ctx_eobt_delay_mean_*",
+      "kinds": [
+        "shift"
+      ],
+      "reason": "Same genuine 2026 delay drift as the M2 delay medians (SA-EMA-FE 5.3)."
+    },
+    {
+      "pattern": "unimpeded_*_support",
+      "kinds": [
+        "shift"
+      ],
+      "reason": "Mean shift from coarse fallback cells at EDDF (terminal 3 from 23 Apr 2026, docs/AIRPORT_CHANGES.md): genuine novelty (SA-EMA-FE 5.3). The tail kind is not covered."
+    },
+    {
+      "pattern": "STAND_mvt",
+      "kinds": [
+        "unseen"
+      ],
+      "mechanism": "EDDF Terminal 3 opened (new stands in 2026); documented in docs/AIRPORT_CHANGES.md; unseen levels map to CatBoost's unknown handling / LightGBM category codes."
+    }
+  ],
+  "columns": {
+    "tmpc": {
+      "kinds": [
+        "shift"
+      ],
+      "reason": "Warmer July 2026 (+0.38 sd); weather, genuine (SA-EMA-FE 5.3)."
+    },
+    "s4_omitted_long_duration_probability": {
+      "kinds": [
+        "shift"
+      ],
+      "reason": "Reference built on different month sets; tiny values (2.6e-4 -> 2.8e-4), negligible (SA-EMA-FE 5.3)."
+    },
+    "m2_al_med_delay_pm3600s": {
+      "kinds": [
+        "null"
+      ],
+      "reason": "SA-EMA-X1 proposal: null iff no other same-operator departure within +-3600 s (m2_al_n_pm3600s == 0); 26.5 -> 27.9 % (Jan), 24.7 -> 25.7 % (Jul) of matched rows. Month-isolated, bounded +-1 h window, not frame-size dependent: a genuine 2026 operator-mix change (fewer same-operator neighbours). Shift kind already covered by m2_*delay*."
+    },
+    "m2_al_delay_excess_pm3600s": {
+      "kinds": [
+        "null"
+      ],
+      "reason": "SA-EMA-X1 proposal: same null mechanism as m2_al_med_delay_pm3600s (defined only when a same-operator neighbour exists within +-1 h)."
+    },
+    "gust": {
+      "kinds": [
+        "null"
+      ],
+      "reason": "SA-EMA-X1 proposal: July 2026 was windier (mean sknt 7.8 -> 8.2 kt; gust groups reported more often at EDDF, EGLL, LFPG, LEMD); METAR 'no gust group' = null. Weather, genuine; tails/shifts not covered."
+    },
+    "native_same_runway_taxi_in_excess_sec": {
+      "kinds": [
+        "null"
+      ],
+      "reason": "SA-EMA-X1 proposal: January only, -4.0 pp null. Month-isolated native state; the change is LIRF runway usage (null 69 % in Jan 2025 -> 11 % in Jan 2026: completed arrivals on the departure runway region, mixed-mode use). Genuine; the lookback itself (native_same_runway_age_sec) is horizon-censored by isocap_v1."
+    },
+    "native_same_runway_recent_excess_sec": {
+      "kinds": [
+        "null"
+      ],
+      "reason": "SA-EMA-X1 proposal: same LIRF runway-usage mechanism as native_same_runway_taxi_in_excess_sec."
+    }
+  }
+}
